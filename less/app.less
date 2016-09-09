@@ -1,0 +1,278 @@
+ /*------------------------/\
+/ / Media Query Variables / /
+\/------------------------*/
+
+// Only Extra-small
+@only-xs: ~"(max-width: 540px)";
+
+// Small and less
+@max-sm: ~"(max-width: 767px)";
+// Only Small
+@only-sm: ~"(min-width: 541px) and (max-width: 767px)";
+// Small and greater
+@min-sm: ~"(min-width: 541px)";
+
+// Medium and less
+@max-md: ~"(max-width: 992px)";
+// Only Medium
+@only-md: ~"(min-width: 768px) and (max-width: 992px)";
+// Medium and greater
+@min-md: ~"(min-width: 768px)";
+
+// Only Large
+@only-lg: ~"(min-width: 1200px)";
+
+
+ /*----------------------/\
+/ / Less Variables      / /
+\/----------------------*/
+
+@shadow: 0 0 8px 1px rgba(0, 0, 0, 0.5);
+
+//Fonts
+// @font-family-sans-serif:  "proxima-nova", Helvetica, Arial, sans-serif;
+
+//Colors
+@player-primary: #111;
+@player-secondary: lighten(@player-primary, 45%);
+
+@text-color: white;
+@control-grey: darken(@text-color, 5%);
+@player-dark: darken(@text-color, 95%);
+
+html,
+body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background-color: @player-secondary;
+  margin: 0;
+}
+
+.player {
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  height: 320px;
+  width: 100%;
+}
+
+.info {
+  background: url(http://i.imgur.com/kLAl05y.jpg) no-repeat center;
+  background-size: cover;
+  border-top-right-radius: 3px;
+  box-shadow: @shadow;
+  overflow: hidden;
+  position: relative;
+  height: 250px;
+  width: 250px;
+
+  .menu-row {
+    margin-top: 12px;
+    height: 40px;
+    width: 100%;
+    z-index: 15;
+
+    .btn {
+      width: 40px;
+      height: 40px;
+      font-size: 20px;
+      line-height: 40px;
+      text-align: center;
+
+      &.menu,
+      &.options {color: @text-color;}
+      &.heart {
+        color: rgba(230, 230, 230, 0.5);
+
+        &:hover {color: @text-color;}
+      }
+      &.left {
+        margin-left: 5px;
+        float: left;
+      }
+      &.right {
+        margin-right: 5px;
+        float: right;
+      }
+
+      i {cursor: pointer;}
+    }
+  }
+
+  .song,
+  .artist,
+  .time {text-shadow: 0 0 1em black;}
+  .song,
+  .artist {
+    font-weight: 300;
+    color: @text-color;
+  }
+  .song {
+    position: absolute;
+    bottom: 45px;
+    left: 16px;
+    font-size: 22px;
+  }
+  .artist {
+    position: absolute;
+    bottom: 30px;
+    left: 16px;
+    font-size: 14px;
+  }
+  .time {
+    position: absolute;
+    bottom: 10px;
+    left: 16px;
+    font-weight: 300;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.5);
+  }
+}
+
+
+.controls {
+  background: @text-color;
+  position: relative;
+  width: 100%;
+  height: 116px;
+
+  .playback {
+    position: absolute;
+    bottom: 20px;
+    left: 15px;
+    width: 180px;
+    height: 60px;
+
+    .previous,
+    .pause,
+    .next {
+      border-radius: 50%;
+      background-color: @control-grey;
+      text-align: center;
+      color: @player-dark;
+      cursor: pointer;
+      -webkit-appearance: none;
+      border: none;
+      outline: none;
+    }
+    .previous,
+    .next {
+      position: absolute;
+      top: 15px;
+      width: 30px;
+      height: 30px;
+      font-size: 14px;
+      line-height: 30px;
+    }
+    .previous {left: 30px;}
+    .next {right: 30px;}
+    .pause {
+      margin: auto;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 44px;
+      height: 44px;
+      font-size: 18px;
+      line-height: 42px;
+
+      .fa-play {text-indent: 2px;}
+    }
+  }
+  .volume {
+    position: absolute;
+    bottom: 20px;
+    left: 200px;
+    width: 180px;
+    height: 60px;
+
+    .vol-down,
+    .vol-up {
+      position: absolute;
+      width: 30px;
+      height: 20px;
+      top: 20px;
+      font-size: 18px;
+      line-height: 20px;
+      text-align: center;
+      color: @player-dark;
+      -webkit-appearance: none;
+      background: none;
+      outline: none;
+      border: none;
+    }
+    .vol-down {left: 5px;}
+    .vol-up {right: 5px;}
+    .vol-bar {
+      margin: auto;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 110px;
+      height: 4px;
+      background-color: @control-grey;
+      border-top: 3px solid @text-color;
+      border-bottom: 3px solid @text-color;
+      cursor: pointer;
+      -webkit-transition: all 0.1s ease-in-out;
+      -moz-transition: all 0.1s ease-in-out;
+      transition: all 0.1s ease-in-out;
+
+      &:hover {height: 12px;}
+      .level {
+        width: 75%;
+        height: 100%;
+        background-color: @player-dark;
+      }
+    }
+  }
+  .playlist {
+    position: absolute;
+    right: 33px;
+    bottom: 50px;
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+    line-height: 62px;
+    text-align: center;
+    color: @player-dark;
+    cursor: pointer;
+  }
+  .shuffle {
+    position: absolute;
+    top: -30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: @player-primary;
+    border-radius: 50%;
+    box-shadow: @shadow;
+    font-size: 22px;
+    line-height: 62px;
+    text-align: center;
+    color: @text-color;
+    z-index: 50;
+    cursor: pointer;
+  }
+}
+
+.track {
+  width: 100%;
+  height: 4px;
+
+  .complete {
+    width: 60%;
+    height: 100%;
+    background-color: @player-primary;
+  }
+}
