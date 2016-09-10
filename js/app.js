@@ -1,8 +1,8 @@
-var track = new Ticker({
-  element: '.complete',
-  start: 60,
-  time: 526
-});
+// var track = new Ticker({
+//   element: '.complete',
+//   start: 60,
+//   time: 526
+// });
 
 $('.pause').on('click', function () {
   $(this).children('.fa')

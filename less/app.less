@@ -1,3 +1,31 @@
+@import url('https://fonts.googleapis.com/css?family=Arvo|Raleway');
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {display: block;}
+body {line-height: 1;}
+ol, ul {list-style: none;}
+
  /*------------------------/\
 / / Media Query Variables / /
 \/------------------------*/
@@ -30,7 +58,8 @@
 @shadow: 0 0 8px 1px rgba(0, 0, 0, 0.5);
 
 //Fonts
-// @font-family-sans-serif:  "proxima-nova", Helvetica, Arial, sans-serif;
+@font-family-serif: 'Arvo', serif;
+@font-family-sans-serif:  'Raleway', Helvetica, Arial, sans-serif;
 
 //Colors
 @player-primary: #111;
@@ -39,6 +68,10 @@
 @text-color: white;
 @control-grey: darken(@text-color, 5%);
 @player-dark: darken(@text-color, 95%);
+
+* {
+  transition: background-color .15s ease-in-out, color .15s ease-in-out;
+}
 
 html,
 body {
@@ -57,7 +90,6 @@ body {
   left: 0;
   margin: auto;
   position: absolute;
-  height: 320px;
   width: 100%;
 }
 
@@ -113,25 +145,28 @@ body {
     color: @text-color;
   }
   .song {
-    position: absolute;
     bottom: 45px;
     left: 16px;
+    font-family: @font-family-serif;
     font-size: 22px;
+    position: absolute;
   }
   .artist {
-    position: absolute;
     bottom: 30px;
     left: 16px;
+    font-family: @font-family-sans-serif;
     font-size: 14px;
+    position: absolute;
   }
   .time {
-    position: absolute;
     bottom: 10px;
-    left: 16px;
-    font-weight: 300;
-    font-size: 12px;
-    letter-spacing: 1px;
     color: rgba(255, 255, 255, 0.5);
+    left: 16px;
+    letter-spacing: 1px;
+    font-family: @font-family-sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    position: absolute;
   }
 }
 
@@ -139,15 +174,14 @@ body {
 .controls {
   background: @text-color;
   position: relative;
+  height: 60px;
   width: 100%;
-  height: 116px;
 
   .playback {
-    position: absolute;
-    bottom: 20px;
-    left: 15px;
-    width: 180px;
+    margin: 0 -20px;
     height: 60px;
+    width: 180px;
+    position: absolute;
 
     .previous,
     .pause,
@@ -160,6 +194,8 @@ body {
       -webkit-appearance: none;
       border: none;
       outline: none;
+
+      &:hover {background-color: darken(@control-grey, 10%);}
     }
     .previous,
     .next {
@@ -188,29 +224,34 @@ body {
     }
   }
   .volume {
+    left: 160px;
     position: absolute;
-    bottom: 20px;
-    left: 200px;
-    width: 180px;
     height: 60px;
+    width: 180px;
 
     .vol-down,
     .vol-up {
-      position: absolute;
-      width: 30px;
-      height: 20px;
-      top: 20px;
+      background: none;
+      border: none;
+      color: @player-dark;
+      cursor: pointer;
       font-size: 18px;
       line-height: 20px;
-      text-align: center;
-      color: @player-dark;
-      -webkit-appearance: none;
-      background: none;
       outline: none;
-      border: none;
+      position: absolute;
+      text-align: center;
+      top: 15px;
+      -webkit-appearance: none;
+      height: 30px;
+      width: 30px;
+
+      &:hover {
+        border-radius: 30px;
+        background-color: @control-grey;
+      }
     }
-    .vol-down {left: 5px;}
-    .vol-up {right: 5px;}
+    .vol-down {left: 0;}
+    .vol-up {right: 0;}
     .vol-bar {
       margin: auto;
       position: absolute;
@@ -224,9 +265,7 @@ body {
       border-top: 3px solid @text-color;
       border-bottom: 3px solid @text-color;
       cursor: pointer;
-      -webkit-transition: all 0.1s ease-in-out;
-      -moz-transition: all 0.1s ease-in-out;
-      transition: all 0.1s ease-in-out;
+      transition: all 0.15s ease-in-out;
 
       &:hover {height: 12px;}
       .level {
@@ -236,22 +275,22 @@ body {
       }
     }
   }
-  .playlist {
-    position: absolute;
-    right: 33px;
-    bottom: 50px;
-    width: 30px;
-    height: 30px;
-    font-size: 14px;
-    line-height: 62px;
-    text-align: center;
-    color: @player-dark;
-    cursor: pointer;
-  }
+  // .playlist {
+  //   position: absolute;
+  //   right: 33px;
+  //   bottom: 50px;
+  //   width: 30px;
+  //   height: 30px;
+  //   font-size: 14px;
+  //   line-height: 62px;
+  //   text-align: center;
+  //   color: @player-dark;
+  //   cursor: pointer;
+  // }
   .shuffle {
     position: absolute;
-    top: -30px;
-    right: 30px;
+    top: -70px;
+    right: 10px;
     width: 60px;
     height: 60px;
     background-color: @player-primary;
@@ -263,12 +302,15 @@ body {
     color: @text-color;
     z-index: 50;
     cursor: pointer;
+
+    &:hover {background-color: lighten(@player-dark, 10%);}
   }
 }
 
 .track {
-  width: 100%;
+  background: @control-grey;
   height: 4px;
+  width: 100%;
 
   .complete {
     width: 60%;
