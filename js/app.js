@@ -9,11 +9,11 @@ $('.pause').on('click', function () {
     .toggleClass('fa-pause')
     .toggleClass('fa-play');
 
-  if (track.paused) {
-    track.play();
-  } else {
-    track.pause();
-  }
+  // if (track.paused) {
+  //   track.play();
+  // } else {
+  //   track.pause();
+  // }
 });
 
 $('.vol-down, .vol-up').on('click', function () {

@@ -5,8 +5,76 @@
 		<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 		<link href="css/app.css" rel="stylesheet">
 		<link rel="shortcut icon" href="img/favicon.png">
+		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 	</head>
-	<body>
+	<body ng-app="musicPlayer">
+		<!-- LISTINGS -->
+		<div class="listings">
+			<div class="album">
+				<div class="track" id="1">
+					<h3>1.</h3>
+					<h1>Heritage</h1>
+					<h3>2:05</h3>
+				</div>
+				<div class="track" id="2">
+					<h3>2.</h3>
+					<h1>"The Devil's Orchard"</h1>
+					<h3>6:40</h3>
+				</div>
+				<div class="track" id="3">
+					<h3>3.</h3>
+					<h1>"I Feel the Dark"</h1>
+					<h3>6:40</h3>
+				</div>
+				<div class="track" id="4">
+					<h3>4.</h3>
+					<h1>"Slither"</h1>
+					<h3>4:03</h3>
+				</div>
+				<div class="track" id="5">
+					<h3>5.</h3>
+					<h1>"Nepenthe"</h1>
+					<h3>5:40</h3>
+				</div>
+				<div class="track" id="6">
+					<h3>6.</h3>
+					<h1>"Häxprocess"</h1>
+					<h3>6:57</h3>
+				</div>
+				<div class="track" id="7">
+					<h3>7.</h3>
+					<h1>"Famine"</h1>
+					<h3>8:32</h3>
+				</div>
+				<div class="track" id="8">
+					<h3>8.</h3>
+					<h1>"The Lines in My Hand"</h1>
+					<h3>3:49</h3>
+				</div>
+				<div class="track" id="9">
+					<h3>9.</h3>
+					<h1>"Folklore"</h1>
+					<h3>8:19</h3>
+				</div>
+				<div class="track" id="10">
+					<h3>10.</h3>
+					<h1>"Marrow of the Earth" (instrumental)</h1>
+					<h3>4:19</h3>
+				</div>
+				<div class="track" id="11">
+					<h3>11.</h3>
+					<h1>"Pyre" (Limited Edition bonus track)</h1>
+					<h3>5:32</h3>
+				</div>
+				<div class="track" id="12">
+					<h3>12.</h3>
+					<h1>"Face in the Snow" (Limited Edition bonus track)</h1>
+					<h3>4:05</h3>
+				</div>
+			</div>
+		</div>
+
+		<!-- PLAYER CONTROLS -->
 		<div class="player">
 		  <div class="info">
 		    <div class="menu-row">
@@ -34,7 +102,7 @@
 		    <!-- <div class="playlist"><i class="fa fa-bars"></i></div> -->
 		    <div class="shuffle"><i class="fa fa-random"></i></div>
 		  </div>
-		  <div class="track">
+		  <div class="tracklength">
 		    <div class="complete"></div>
 		  </div>
 		</div>
