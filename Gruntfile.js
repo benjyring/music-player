@@ -5,7 +5,7 @@ module.exports = function(grunt){
 	// Load the plugins
 	require('load-grunt-tasks')(grunt, {scope: 'devDependencies'});
 
-	grunt.loadTasks('tasks');
+	// grunt.loadTasks('tasks');
 
 	// Project configuration
 	grunt.initConfig({
