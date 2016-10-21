@@ -2,8 +2,6 @@
 	GRID
 */
 
-body {margin: 0;}
-
 [class*='grid'],
 [class*='col-'],
 .grid:after {
@@ -35,36 +33,39 @@ body {margin: 0;}
 }
 /* Content Columns */
 
-.col-12-12 {width: 100%;}
-.col-11-12 {width: 91.66%;}
-.col-10-12 {width: 83.333%;}
-.col-9-12 {width: 75%;}
-.col-8-12 {width: 66.66%;}
-.col-7-12 {width: 58.33%;}
-.col-6-12 {width: 50%;}
-.col-5-12 {width: 41.66%;}
-.col-4-12 {width: 33.33%;}
-.col-3-12 {width: 25%;}
-.col-2-12 {width: 16.667%;}
-.col-1-12 {width: 8.33%;}
+.col- {
+	&12-12 {width: 100%;}
+	&11-12 {width: 91.66%;}
+	&10-12 {width: 83.333%;}
+	&9-12 {width: 75%;}
+	&8-12 {width: 66.66%;}
+	&7-12 {width: 58.33%;}
+	&6-12 {width: 50%;}
+	&5-12 {width: 41.66%;}
+	&4-12 {width: 33.33%;}
+	&3-12 {width: 25%;}
+	&2-12 {width: 16.667%;}
+	&1-12 {width: 8.33%;}
+}
 
 /* Pushing blocks */
 
-.push-right {float: right;}
+.push- {
+	&right {float: right;}
 
-.push-12-12 {margin-left: 100%;}
-.push-11-12 {margin-left: 91.66%;}
-.push-10-12 {margin-left: 83.333%;}
-.push-9-12 {margin-left: 75%;}
-.push-8-12 {margin-left: 66.66%;}
-.push-7-12 {margin-left: 58.33%;}
-.push-6-12 {margin-left: 50%;}
-.push-5-12 {margin-left: 41.66%;}
-.push-4-12 {margin-left: 33.33%;}
-.push-3-12 {margin-left: 25%;}
-.push-2-12 {margin-left: 16.667%;}
-.push-1-12 {margin-left: 8.33%;}
+	&11-12 {margin-left: 91.66%;}
+	&10-12 {margin-left: 83.333%;}
+	&9-12 {margin-left: 75%;}
+	&8-12 {margin-left: 66.66%;}
+	&7-12 {margin-left: 58.33%;}
+	&6-12 {margin-left: 50%;}
+	&5-12 {margin-left: 41.66%;}
+	&4-12 {margin-left: 33.33%;}
+	&3-12 {margin-left: 25%;}
+	&2-12 {margin-left: 16.667%;}
+	&1-12 {margin-left: 8.33%;}
+}
 
-@media screen and (max-width: 767px) {
+@media @max-sm {
 	.mobile-hidden {display: none !important;}
 }
